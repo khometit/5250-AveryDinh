@@ -34,7 +34,7 @@ namespace Mine.Views
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
                     case (int)MenuItemType.Game:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        MenuPages.Add(id, new NavigationPage(new GamePage()));
                         break;
                 }
             }
