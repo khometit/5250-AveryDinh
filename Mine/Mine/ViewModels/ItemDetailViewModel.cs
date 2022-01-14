@@ -6,8 +6,8 @@ namespace Mine.ViewModels
 {
     public class ItemDetailViewModel : BaseViewModel
     {
-        public Item Item { get; set; }
-        public ItemDetailViewModel(Item item = null)
+        public ItemModel Item { get; set; }
+        public ItemDetailViewModel(ItemModel item = null)
         {
             Title = item?.Text;
             Item = item;

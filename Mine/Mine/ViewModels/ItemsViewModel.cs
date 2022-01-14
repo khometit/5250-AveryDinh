@@ -12,18 +12,18 @@ namespace Mine.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<ItemModel> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
 
         public ItemsViewModel()
         {
             Title = "Items";
-            Items = new ObservableCollection<Item>();
+            Items = new ObservableCollection<ItemModel>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
+            MessagingCenter.Subscribe<NewItemPage, ItemModel>(this, "AddItem", async (obj, item) =>
             {
-                var newItem = item as Item;
+                var newItem = item as ItemModel;
                 Items.Add(newItem);
                 await DataStore.AddItemAsync(newItem);
             });

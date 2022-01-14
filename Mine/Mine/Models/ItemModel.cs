@@ -2,7 +2,7 @@
 
 namespace Mine.Models
 {
-    public class Item
+    public class ItemModel
     {
         public string Id { get; set; }
         public string Text { get; set; }
