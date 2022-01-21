@@ -35,5 +35,17 @@ namespace Mine.Views
             viewModel = new ItemReadViewModel(item);
             BindingContext = viewModel;
         }
+
+        /// <summary>
+        /// Open the delete page for this iem
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void DeleteItem_Clicked(object sender, EventArgs e)
+        {
+            //pushing a delete page on the modal stack, using the constructor that takes ItemReadViewModel
+            //view model then gets used for data binding
+            await Navigation.PushModalAsync(new NavigationPage(new ItemDeletePage(viewModel)));
+        }
     }
 }
