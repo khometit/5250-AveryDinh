@@ -21,7 +21,7 @@ namespace Mine.ViewModels
             Items = new ObservableCollection<ItemModel>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewItemPage, ItemModel>(this, "AddItem", async (obj, item) =>
+            MessagingCenter.Subscribe<ItemCreatePage, ItemModel>(this, "AddItem", async (obj, item) =>
             {
                 var newItem = item as ItemModel;
                 Items.Add(newItem);
