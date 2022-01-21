@@ -29,7 +29,7 @@ namespace Mine.Services
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> UpdateItemAsync(ItemModel item)
+        public async Task<bool> UpdateAsync(ItemModel item)
         {
             var oldItem = items.Where((ItemModel arg) => arg.Id == item.Id).FirstOrDefault();
             items.Remove(oldItem);
