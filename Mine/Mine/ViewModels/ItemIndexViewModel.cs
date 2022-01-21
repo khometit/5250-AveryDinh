@@ -25,7 +25,7 @@ namespace Mine.ViewModels
             {
                 var newItem = item as ItemModel;
                 Items.Add(newItem);
-                await DataStore.AddItemAsync(newItem);
+                await DataStore.CreateAsync(newItem);
             });
         }
 

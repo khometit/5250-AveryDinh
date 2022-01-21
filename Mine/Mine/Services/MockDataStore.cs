@@ -22,7 +22,7 @@ namespace Mine.Services
             };
         }
 
-        public async Task<bool> AddItemAsync(ItemModel item)
+        public async Task<bool> CreateAsync(ItemModel item)
         {
             items.Add(item);
 
