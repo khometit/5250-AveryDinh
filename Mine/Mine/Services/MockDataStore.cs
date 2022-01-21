@@ -38,7 +38,7 @@ namespace Mine.Services
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteItemAsync(string id)
+        public async Task<bool> DeleteAsync(string id)
         {
             var oldItem = items.Where((ItemModel arg) => arg.Id == id).FirstOrDefault();
             items.Remove(oldItem);
