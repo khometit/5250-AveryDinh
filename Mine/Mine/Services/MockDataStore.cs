@@ -46,7 +46,7 @@ namespace Mine.Services
             return await Task.FromResult(true);
         }
 
-        public async Task<ItemModel> GetItemAsync(string id)
+        public async Task<ItemModel> ReadAsync(string id)
         {
             return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
         }
