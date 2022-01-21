@@ -10,6 +10,6 @@ namespace Mine.Services
         Task<bool> UpdateAsync(T item);
         Task<bool> DeleteAsync(string id);
         Task<T> ReadAsync(string id);
-        Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
+        Task<IEnumerable<T>> IndexAsync(bool forceRefresh = false);
     }
 }
