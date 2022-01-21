@@ -33,7 +33,7 @@ namespace Mine.Views
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new ItemReadPage(new ItemDetailViewModel(item)));
+            await Navigation.PushAsync(new ItemReadPage(new ItemReadViewModel(item)));
 
             // Manually deselect item.
             ItemsListView.SelectedItem = null;

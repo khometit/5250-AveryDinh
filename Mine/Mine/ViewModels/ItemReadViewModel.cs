@@ -4,10 +4,10 @@ using Mine.Models;
 
 namespace Mine.ViewModels
 {
-    public class ItemDetailViewModel : BaseViewModel
+    public class ItemReadViewModel : BaseViewModel
     {
         public ItemModel Item { get; set; }
-        public ItemDetailViewModel(ItemModel item = null)
+        public ItemReadViewModel(ItemModel item = null)
         {
             Title = item?.Text;
             Item = item;
