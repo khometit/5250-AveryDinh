@@ -49,5 +49,12 @@ namespace Mine.Views
 
             await Navigation.PopAsync();
         }
+
+        public async void UpdateItem_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new ItemUpdatePage(viewModel)));
+
+            await Navigation.PopAsync();
+        }
     }
 }
