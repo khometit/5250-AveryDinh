@@ -7,8 +7,8 @@
              x:Class="Mine.Views.ItemDeletePage"
              Title="{Binding Title}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Delete" Clicked="DeleteItem_Clicked" />
-        <ToolbarItem Text="Cancel" Clicked="CancelItem_Clicked" />
+        <ToolbarItem Text="Delete" Clicked="DeleteItem_Clicked" IconImageSource="icon_delete.png"/>
+        <ToolbarItem Text="Cancel" Clicked="CancelItem_Clicked" IconImageSource="icon_cancel.png"/>
     </ContentPage.ToolbarItems>
     
     <StackLayout Spacing="20" Padding="15">
