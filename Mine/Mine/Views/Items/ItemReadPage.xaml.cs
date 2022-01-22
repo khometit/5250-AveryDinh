@@ -46,6 +46,8 @@ namespace Mine.Views
             //pushing a delete page on the modal stack, using the constructor that takes ItemReadViewModel
             //view model then gets used for data binding
             await Navigation.PushModalAsync(new NavigationPage(new ItemDeletePage(viewModel)));
+
+            await Navigation.PopAsync();
         }
     }
 }
