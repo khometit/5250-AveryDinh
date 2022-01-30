@@ -72,7 +72,16 @@ namespace Mine.Services
 
         public Task<ItemModel> ReadAsync(string id)
         {
-            throw new NotImplementedException();
+            //return if id is invalid
+            if(id == null)
+            {
+                return null;
+            }
+
+            //Otherise, look up in our database
+            //Using Linq syntax to find the first record that has the ID that matches
+            var result = Database.Table<ItemModel>().FirstOrDefaultAsync(m => m.Id.Equals(id));
+            return result;
         }
 
         /// <summary>
