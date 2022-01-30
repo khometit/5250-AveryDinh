@@ -79,9 +79,25 @@ namespace Mine.Services
             return true;
         }
 
-        public Task<bool> DeleteAsync(string id)
+        public async Task<bool> DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+            //Retrieve a copy from the database to make sure there exists one
+            var data = await ReadAsync(id);
+            if(data == null)
+            {
+                return false;
+            }
+
+            //remove the item from our database
+            var result = await Database.DeleteAsync(data);
+            //# of rows deleted should be > 0
+            if(result == 0)
+            {
+                return false;
+            }
+
+            return true;
+            
         }
 
         public Task<ItemModel> ReadAsync(string id)
