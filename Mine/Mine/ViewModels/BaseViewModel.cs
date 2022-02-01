@@ -10,8 +10,14 @@ using Mine.Services;
 
 namespace Mine.ViewModels
 {
+    /// <summary>
+    /// BaseViewModel for all subclassing ViewModel
+    /// </summary>
     public class BaseViewModel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Set up the DataStore connection
+        /// </summary>
         public IDataStore<ItemModel> DataStore => DependencyService.Get<IDataStore<ItemModel>>();
 
         bool isBusy = false;
