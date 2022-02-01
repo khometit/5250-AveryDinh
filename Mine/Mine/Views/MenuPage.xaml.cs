@@ -14,6 +14,10 @@ namespace Mine.Views
     {
         MainPage RootPage { get => Application.Current.MainPage as MainPage; }
         List<HomeMenuItem> menuItems;
+
+        /// <summary>
+        /// Default constructor for menu page, loads some default menu options
+        /// </summary>
         public MenuPage()
         {
             InitializeComponent();
