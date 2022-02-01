@@ -9,6 +9,9 @@ using Xamarin.Forms.Xaml;
 
 namespace Mine.Views
 {
+    /// <summary>
+    /// Code behind for GamePage
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GamePage : ContentPage
     {
@@ -17,6 +20,11 @@ namespace Mine.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Even handler for when the Game Button is clicked, show pop up.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void GameButton_Clicked(object sender, EventArgs e)
         {
             DisplayAlert("SU", "Go RedHawks", "OK");
