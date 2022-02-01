@@ -10,11 +10,17 @@ using Mine.Views;
 
 namespace Mine.ViewModels
 {
+    /// <summary>
+    /// Class to control Items
+    /// </summary>
     public class ItemIndexViewModel : BaseViewModel
     {
         public ObservableCollection<ItemModel> DataSet { get; set; }
         public Command LoadItemsCommand { get; set; }
 
+        /// <summary>
+        /// Constructor to set up the local database and configure messaging center
+        /// </summary>
         public ItemIndexViewModel()
         {
             Title = "Items";
@@ -104,6 +110,10 @@ namespace Mine.ViewModels
             return result;
         }
 
+        /// <summary>
+        /// Load the item from database to our local database
+        /// </summary>
+        /// <returns></returns>
         async Task ExecuteLoadItemsCommand()
         {
             if (IsBusy)
