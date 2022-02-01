@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Mine
 {
+    /// <summary>
+    /// Class containing data used to database connection
+    /// </summary>
     public static class Constants
     {
         //public const string DatabaseFilename = "TodoSQLite.db3";
@@ -18,6 +21,7 @@ namespace Mine
             //enable multi-threaded database access
             SQLite.SQLiteOpenFlags.SharedCache;
 
+        //Construct the path that will be used for connection.
         public static string DatabasePath
         {
             get
