@@ -16,6 +16,9 @@ namespace Mine.Views
     {
         public ItemModel Item { get; set; }
 
+        /// <summary>
+        /// Default constructor that takes no argument
+        /// </summary>
         public ItemUpdatePage()
         {
             InitializeComponent();
@@ -30,7 +33,7 @@ namespace Mine.Views
         }
 
         /// <summary>
-        /// Constructur that takes a ViewModel
+        /// Constructor that takes a ViewModel
         /// </summary>
         /// <param name="viewModel"></param>
         public ItemUpdatePage(ItemReadViewModel viewModel)
@@ -41,12 +44,22 @@ namespace Mine.Views
             BindingContext = this;
         }
 
+        /// <summary>
+        /// Event handler for when Save button is clicked, load Update page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "UpdateItem", Item);
             await Navigation.PopModalAsync();
         }
 
+        /// <summary>
+        /// Event handler for when Cancle button is clicked, pop the Update page off the stack, return to previous page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
