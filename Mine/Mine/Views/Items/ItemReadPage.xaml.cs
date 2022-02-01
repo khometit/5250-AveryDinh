@@ -15,6 +15,10 @@ namespace Mine.Views
     {
         ItemReadViewModel viewModel;
 
+        /// <summary>
+        /// Constructor that takes an ItemReadViewModel
+        /// </summary>
+        /// <param name="viewModel"></param>
         public ItemReadPage(ItemReadViewModel viewModel)
         {
             InitializeComponent();
@@ -22,6 +26,10 @@ namespace Mine.Views
             BindingContext = this.viewModel = viewModel;
         }
 
+
+        /// <summary>
+        /// Constructor that takes no argument.
+        /// </summary>
         public ItemReadPage()
         {
             InitializeComponent();
@@ -50,6 +58,11 @@ namespace Mine.Views
             await Navigation.PopAsync();
         }
 
+        /// <summary>
+        /// Open the Update page when Update button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public async void UpdateItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new ItemUpdatePage(viewModel)));
