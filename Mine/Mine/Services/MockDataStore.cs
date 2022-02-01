@@ -6,10 +6,16 @@ using Mine.Models;
 
 namespace Mine.Services
 {
+    /// <summary>
+    /// Fake datastore
+    /// </summary>
     public class MockDataStore : IDataStore<ItemModel>
     {
         readonly List<ItemModel> items;
 
+        /// <summary>
+        /// Default constructor, create some test data
+        /// </summary>
         public MockDataStore()
         {
             items = new List<ItemModel>()
@@ -22,6 +28,11 @@ namespace Mine.Services
             };
         }
 
+        /// <summary>
+        /// Create a new item in the database
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public async Task<bool> CreateAsync(ItemModel item)
         {
             items.Add(item);
@@ -29,6 +40,11 @@ namespace Mine.Services
             return await Task.FromResult(true);
         }
 
+        /// <summary>
+        /// Update an item in the database
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public async Task<bool> UpdateAsync(ItemModel item)
         {
             var oldItem = items.Where((ItemModel arg) => arg.Id == item.Id).FirstOrDefault();
@@ -38,6 +54,11 @@ namespace Mine.Services
             return await Task.FromResult(true);
         }
 
+        /// <summary>
+        /// Delete an item from the databse
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<bool> DeleteAsync(string id)
         {
             var oldItem = items.Where((ItemModel arg) => arg.Id == id).FirstOrDefault();
@@ -46,11 +67,22 @@ namespace Mine.Services
             return await Task.FromResult(true);
         }
 
+        /// <summary>
+        /// Retrieve an item from the database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<ItemModel> ReadAsync(string id)
         {
             return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
         }
 
+
+        /// <summary>
+        /// Return all records in the database
+        /// </summary>
+        /// <param name="forceRefresh"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<ItemModel>> IndexAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(items);
