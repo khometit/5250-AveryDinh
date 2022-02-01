@@ -20,6 +20,9 @@ namespace Mine.Views
     {
         ItemIndexViewModel viewModel;
 
+        /// <summary>
+        /// default constructor takes no argument
+        /// </summary>
         public ItemIndexPage()
         {
             InitializeComponent();
@@ -27,6 +30,11 @@ namespace Mine.Views
             BindingContext = viewModel = new ItemIndexViewModel();
         }
 
+        /// <summary>
+        /// Event handler for when an item is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var item = args.SelectedItem as ItemModel;
@@ -39,11 +47,19 @@ namespace Mine.Views
             ItemsListView.SelectedItem = null;
         }
 
+        /// <summary>
+        /// Event handler for when Add button is clicked, redirect to Create page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new ItemCreatePage()));
         }
 
+        /// <summary>
+        /// Instructs what the page should do upon appearing
+        /// </summary>
         protected override void OnAppearing()
         {
             base.OnAppearing();
