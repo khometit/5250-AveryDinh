@@ -8,21 +8,33 @@ using System.Collections.Generic;
 
 namespace Mine.Services
 {
+    /// <summary>
+    /// Class to set up our service to the database
+    /// </summary>
     public class DatabaseService : IDataStore<ItemModel>
     {
+        //initializer
         static readonly Lazy<SQLiteAsyncConnection> lazyInitializer = new Lazy<SQLiteAsyncConnection>(() =>
         {
             return new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
         });
 
+        //Set up the databse connection
         static SQLiteAsyncConnection Database => lazyInitializer.Value;
         static bool initialized = false;
 
+        /// <summary>
+        /// Constructure to fire up the database service
+        /// </summary>
         public DatabaseService()
         {
             InitializeAsync().SafeFireAndForget(false);
         }
 
+        /// <summary>
+        /// Check if the database has been initialized. If not, initialize by creating tables.
+        /// </summary>
+        /// <returns></returns>
         async Task InitializeAsync()
         {
             if (!initialized)
@@ -60,6 +72,11 @@ namespace Mine.Services
 
         }
 
+        /// <summary>
+        /// Update an item in the database
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public async Task<bool> UpdateAsync(ItemModel item)
         {
             //return if id is invalid
@@ -79,6 +96,11 @@ namespace Mine.Services
             return true;
         }
 
+        /// <summary>
+        /// Delete an item from the databse
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<bool> DeleteAsync(string id)
         {
             //Retrieve a copy from the database to make sure there exists one
@@ -100,6 +122,11 @@ namespace Mine.Services
             
         }
 
+        /// <summary>
+        /// Retrieve an item from the database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Task<ItemModel> ReadAsync(string id)
         {
             //return if id is invalid
