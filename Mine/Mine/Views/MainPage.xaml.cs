@@ -15,12 +15,22 @@ namespace Mine.Views
     public partial class MainPage : MasterDetailPage
     {
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MainPage()
         {
             InitializeComponent();
 
             MasterBehavior = MasterBehavior.Popover;
         }
+
+        /// <summary>
+        /// Add an appropriate page when a menu item is selected
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task NavigateFromMenu(int id)
         {
             if (!MenuPages.ContainsKey(id))
