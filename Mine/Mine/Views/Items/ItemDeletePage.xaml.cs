@@ -15,6 +15,10 @@ namespace Mine.Views
     {
         ItemReadViewModel viewModel;
 
+        /// <summary>
+        /// Constructor to the Item delete page that takes an ItemReadViewModel
+        /// </summary>
+        /// <param name="viewModel"></param>
         public ItemDeletePage(ItemReadViewModel viewModel)
         {
             InitializeComponent();
@@ -22,6 +26,9 @@ namespace Mine.Views
             BindingContext = this.viewModel = viewModel;
         }
 
+        /// <summary>
+        /// Default constuctor that takes no argument
+        /// </summary>
         public ItemDeletePage()
         {
             InitializeComponent();
