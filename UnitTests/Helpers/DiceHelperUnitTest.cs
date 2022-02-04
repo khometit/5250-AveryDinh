@@ -9,6 +9,9 @@ namespace UnitTests.Helpers
     /// </summary>
     public class DiceHelperUnitTest
     {
+        /// <summary>
+        /// Test invalid roll of zero, should return 0
+        /// </summary>
         [Test]
         public void RollDice_Invalid_Roll_Zero_Should_Return_Zero()
         {
@@ -22,6 +25,23 @@ namespace UnitTests.Helpers
             //Assert
             Assert.AreEqual(0, result);
         }
-         
+
+        /// <summary>
+        /// Test valid roll of 1 dice 6, should return a value from 1 to 6
+        /// </summary>
+        [Test]
+        public void RollDice_Valid_Roll_1_Dice_6_Should_Return_Between_1_And_6()
+        {
+            //Arrange
+
+            //Act
+            var result = DiceHelper.RollDice(1, 6);
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result >= 1);
+            Assert.AreEqual(true, result <= 6);
+        }
     }
 }
