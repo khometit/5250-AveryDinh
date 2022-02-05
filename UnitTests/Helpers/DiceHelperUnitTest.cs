@@ -97,5 +97,25 @@ namespace UnitTests.Helpers
             //Assert
             Assert.AreEqual(0, result);
         }
+
+        /// <summary>
+        /// Test Valid roll of 2, dice 6, should return between 2 and 12
+        /// </summary>
+        [Test]
+        public void RollDice_Valid_Roll_2_Dice_6_Should_Return_Between_2_And_12()
+        {
+            //Arrange
+
+            //Act
+            var result = DiceHelper.RollDice(2, 6);
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result >= 2);
+            Assert.AreEqual(true, result <= 12);
+        }
+
+        //Added RollDice_Invalid_Roll_1_Dice_0 to DiceHelperUnitTest.cs
     }
 }
