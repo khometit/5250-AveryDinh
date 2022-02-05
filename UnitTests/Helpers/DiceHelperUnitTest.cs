@@ -80,5 +80,22 @@ namespace UnitTests.Helpers
             //Assert
             Assert.AreEqual(0, result);
         }
+
+        /// <summary>
+        /// Test invalid dice 0, should return 0
+        /// </summary>
+        [Test]
+        public void RollDice_Invalid_Roll_0_Dice_10_Should_Return_Zero()
+        {
+            //Arrange
+
+            //Act
+            var result = DiceHelper.RollDice(0, 10);
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(0, result);
+        }
     }
 }
