@@ -19,7 +19,7 @@ namespace Mine.Helpers
         public static bool ForceRollsToNotRandom = false;
 
         // Holds the random value for the sytem
-        private static int ForcedRandomValue = 1;
+        public static int ForcedRandomValue = 1;
 
         /// <summary>
         /// Method to Roll A Random Dice, a Set number of times
