@@ -116,6 +116,24 @@ namespace UnitTests.Helpers
             Assert.AreEqual(true, result <= 12);
         }
 
-        //Added RollDice_Invalid_Roll_1_Dice_0 to DiceHelperUnitTest.cs
+        /// <summary>
+        /// Test invalid roll 1 dice 10, force 5, should return 5
+        /// </summary>
+        [Test]
+        public void RollDice_Valid_Roll_1_Dice_10_Forced_5_Should_Return_5()
+        {
+            //Arrange
+            DiceHelper.ForceRollsToNotRandom = true;
+            DiceHelper.ForcedRandomValue = 5;
+
+            //Act
+            var result = DiceHelper.RollDice(1, 10);
+
+            //Reset
+            DiceHelper.ForceRollsToNotRandom = false;
+
+            //Assert
+            Assert.AreEqual(5, result);
+        }
     }
 }
